@@ -1,0 +1,519 @@
+
+:root {
+    --bleu: #0171F9;
+    --rose: #EE626B;
+    --rose-fonce: #9E4147;
+    --gris-clair: #EEEEEE;
+    --gris-texte: #8a8a8a;
+    --texte: #2a2a3b;
+    --blanc: #ffffff;
+    --rayon: 20px;
+    --pill: 50px;
+    --largeur-max: 1300px;
+    --ombre: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--texte);
+    line-height: 1.6;
+}
+
+img {
+    display: block;      
+    max-width: 100%;
+}
+
+h1, h2, h3, p {
+    margin: 0;           
+}
+
+button {
+    font-family: inherit; 
+}
+
+a {
+    color: inherit;
+}
+
+
+.btn {
+    display: inline-block;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: var(--pill);
+    padding: 12px 25px;              /* ✅ plus de height: 52px fixe */
+    background-color: var(--rose);
+    color: var(--blanc);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--rose-fonce);
+    transform: translateY(-2px);
+}
+
+
+.headerContainer {
+    background-color: var(--bleu);
+    padding: 20px 40px;              
+}
+
+.header {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    color: var(--blanc);
+}
+
+.logo img {
+    width: 150px;
+}
+
+
+.headerLinks {
+    flex: 1;
+    max-width: 650px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.headerLinks a {
+    text-decoration: none;
+    color: var(--blanc);
+    padding: 8px 16px;
+    border-radius: var(--pill);
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.headerLinks a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.landingPageContainer {
+    background-color: var(--bleu);
+    color: var(--blanc);
+    border-radius: 0 0 100px 100px;
+    padding: 0 40px 80px;           
+}
+
+.landingPage {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 0 0;
+}
+
+.leftSide   { flex: 1.2; }
+.imageContainer { flex: 1; }
+
+.imageContainer img {
+    width: 100%;
+    border-radius: var(--rayon);
+}
+
+
+.welcome {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px 20px;
+    border-radius: var(--pill);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.slogan {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.2rem); 
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.9);  
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--blanc);
+    border-radius: var(--pill);
+    padding: 6px;
+    margin-top: 50px;
+    max-width: 480px;
+}
+
+.searchBar input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--texte);
+    background: transparent;
+}
+
+.searchBar input::placeholder {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
+
+.searchBar .searchBtn {
+    flex-shrink: 0;
+}
+
+
+.trendingContainer {
+    max-width: var(--largeur-max);
+    margin: 100px auto 0;
+    padding: 0 40px;
+}
+
+
+.trendingHeader,
+.mostHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.trendingHeader h2,
+.mostHeader h2,
+.categoryHeader h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+}
+
+.trendingContainer span,
+.mostContainer span,
+.categoryHeader span {
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+.trendingCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.trendingCard .card {
+    background-color: var(--gris-clair);
+    border-radius: var(--rayon);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trendingCard .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--ombre);
+}
+
+.trendingCard .card > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;      
+    object-fit: cover;
+}
+
+
+.trendingCard .cardInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px 18px;
+}
+
+.trendingCard .cardName p {
+    color: var(--gris-texte);
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.trendingCard .cardName h3 {
+    font-size: 1.05rem;
+}
+
+.trendingCard .cardInfo .icon img {
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+
+.trendingCard .cardInfo .icon:hover img {
+    transform: scale(1.25);
+}
+
+
+.mostContainer {
+    background-color: var(--gris-clair);
+    margin-top: 100px;
+    padding: 70px 40px;
+    border-radius: 100px;
+}
+
+.mostPlayed {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+}
+
+.mostCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+}
+
+.mostCards .card {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.mostCards .card:hover {
+    transform: translateY(-6px);
+}
+
+.mostCards .cardImg img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 03px 3px 03px 03px;
+    
+}
+
+.mostCards .cardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 15px;
+}
+
+.mostCards .cardInfo .genre {
+    color: var(--gris-texte);
+    font-size: 0.9rem;
+}
+
+.mostCards .cardInfo .cardName {
+    font-size: 1rem;
+}
+
+.mostCards .btn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+
+.categoryContainer {
+    margin-top: 150px;
+    padding: 0 40px;
+}
+
+.category {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+}
+
+.categoryHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.categoryCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.category .card {
+    transition: transform 0.3s ease;
+}
+
+.category .card:hover {
+    transform: translateY(-8px);  
+}
+
+.category .genre {
+    background-color: var(--bleu);
+    color: var(--blanc);
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 15px 0 30px;
+    border-radius: var(--rayon) var(--rayon) 0 0;
+}
+
+
+.category .cardImg {
+    margin-top: -20px;
+    padding: 0 10px;
+}
+
+.category .cardImg img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--rayon);
+}
+
+
+.footerContainer {
+    background-color: var(--bleu);
+    margin-top: 150px;
+    padding: 60px 40px;           /* ✅ plus de height: 150px fixe */
+    border-radius: 100px 100px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+    text-align: center;
+    color: var(--blanc);
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.footer a {
+    color: var(--blanc);
+}
+
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    max-width: var(--largeur-max);
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.formContainer form {
+    background-color: var(--gris-clair);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: var(--rayon);
+}
+
+/* ✅ BUG corrigé : avant, `textarea` tout seul stylait TOUS les textareas du site */
+.formContainer input,
+.formContainer textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    outline: none;
+    padding: 0 20px;
+    transition: border-color 0.3s ease;
+}
+
+.formContainer input {
+    height: 50px;
+    border-radius: var(--pill);
+}
+
+.formContainer textarea {
+    border-radius: var(--rayon);
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 130px;
+}
+
+.formContainer input:focus,
+.formContainer textarea:focus {
+    border-color: var(--bleu);
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .headerContainer       { padding: 20px 25px; }
+    .landingPageContainer  { padding: 0 25px 60px; }
+    .trendingContainer,
+    .categoryContainer     { padding: 0 25px; }
+    .mostContainer         { padding: 60px 25px; border-radius: 60px; }
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;  
+        align-items: center;
+        gap: 15px;
+    }
+
+    .headerLinks {
+        justify-content: center;
+    }
+
+    .landingPage {
+        flex-direction: column;   
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .description { margin: 0 auto 10px; }
+    .searchBar   { margin: 40px auto 0; }
+
+    .landingPageContainer { border-radius: 0 0 50px 50px; }
+    .mostContainer        { border-radius: 50px; margin-top: 60px; }
+    .footerContainer      { border-radius: 50px 50px 0 0; margin-top: 80px; }
+
+    .trendingContainer { margin-top: 60px; }
+    .categoryContainer { margin-top: 80px; }
+
+    .trendingHeader,
+    .mostHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
