@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    
 
     const searchForm = document.querySelector(".searchBar");
     const searchInput = document.querySelector(
@@ -12,59 +11,73 @@ document.addEventListener("DOMContentLoaded", function () {
         ".trendingCard .card, .mostCards .card"
     );
 
-    if (searchForm && searchInput) {
+    let searchMessage = document.getElementById("searchMessage");
 
-        searchForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+   
+    if (searchForm && !searchMessage) {
+        searchMessage = document.createElement("p");
+        searchMessage.id = "searchMessage";
+        searchMessage.className = "text-center mt-3";
+        searchForm.insertAdjacentElement("afterend", searchMessage);
+    }
 
-            const recherche = searchInput.value.trim().toLowerCase();
-            let nombreResultats = 0;
+   
+    function rechercherJeux() {
+        if (!searchInput) return;
 
-            gameCards.forEach(function (card) {
-                const nomJeu = card.textContent.toLowerCase();
+        const recherche = searchInput.value.trim().toLowerCase();
+        let nombreResultats = 0;
 
-                if (nomJeu.includes(recherche)) {
-                    card.style.display = "";
-                    nombreResultats++;
-                } else {
-                    card.style.display = "none";
-                }
-            });
+        gameCards.forEach(function (card) {
+            const nomJeu = card.textContent.toLowerCase();
+            const correspond = recherche === "" || nomJeu.includes(recherche);
 
-            let message = document.getElementById("searchMessage");
+            card.style.display = correspond ? "" : "none";
 
-            if (!message) {
-                message = document.createElement("p");
-                message.id = "searchMessage";
-                message.className = "text-center mt-3";
-                searchForm.insertAdjacentElement("afterend", message);
-            }
-
-            if (recherche === "") {
-                message.textContent = "Tous les jeux sont affichés.";
-            } else if (nombreResultats === 0) {
-                message.textContent = "Aucun jeu trouvé.";
-            } else {
-                message.textContent =
-                    nombreResultats + " résultat(s) trouvé(s).";
+            if (correspond) {
+                nombreResultats++;
             }
         });
 
-        
+        if (searchMessage) {
+            if (recherche === "") {
+                searchMessage.textContent = "Tous les jeux sont affichés.";
+            } else if (nombreResultats === 0) {
+                searchMessage.textContent = "Aucun jeu trouvé.";
+            } else {
+                searchMessage.textContent =
+                    nombreResultats + " résultat(s) trouvé(s).";
+            }
+        }
+    }
+
+    if (searchForm && searchInput) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            rechercherJeux();
+        });
+
+       
         searchInput.addEventListener("input", function () {
             if (searchInput.value.trim() === "") {
-                gameCards.forEach(function (card) {
-                    card.style.display = "";
-                });
-
-                const message = document.getElementById("searchMessage");
-
-                if (message) {
-                    message.textContent = "";
-                }
+                rechercherJeux();
             }
         });
     }
+
+
+    
+
+    const viewAllButtons = document.querySelectorAll(
+        ".trendingHeader .btn, .mostHeader .btn"
+    );
+
+    viewAllButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "shop.html";
+        });
+    });
 
 
    
@@ -72,14 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const signInButton = document.querySelector(".headerLinks button");
 
     if (signInButton) {
-
-        signInButton.addEventListener("click", function () {
+        signInButton.addEventListener("click", function (event) {
+            event.preventDefault();
 
             let modal = document.getElementById("signInModal");
 
-            
+           
             if (!modal) {
-
                 modal = document.createElement("div");
                 modal.id = "signInModal";
                 modal.className = "modal fade";
@@ -93,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             <div class="modal-header">
                                 <h5 class="modal-title" id="signInTitle">
-                                    Connexion 
+                                    Connexion
                                 </h5>
 
                                 <button type="button"
@@ -104,32 +116,35 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
 
                             <div class="modal-body">
-
                                 <form id="signInForm">
 
                                     <div class="mb-3">
-                                        <label for="email"
+                                        <label for="signInEmail"
                                             class="form-label">
                                             Adresse e-mail
                                         </label>
 
                                         <input type="email"
                                             class="form-control"
-                                            id="email"
+                                            id="signInEmail"
+                                            name="email"
                                             placeholder="exemple@email.com"
+                                            autocomplete="email"
                                             required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="password"
+                                        <label for="signInPassword"
                                             class="form-label">
                                             Mot de passe
                                         </label>
 
                                         <input type="password"
                                             class="form-control"
-                                            id="password"
+                                            id="signInPassword"
+                                            name="password"
                                             placeholder="Votre mot de passe"
+                                            autocomplete="current-password"
                                             required>
                                     </div>
 
@@ -139,10 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                     </button>
 
                                 </form>
-
-                                
-
                             </div>
+
                         </div>
                     </div>
                 `;
@@ -150,16 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.body.appendChild(modal);
             }
 
-            
+          
             if (window.bootstrap && window.bootstrap.Modal) {
-
                 const modalInstance =
-                    bootstrap.Modal.getOrCreateInstance(modal);
+                    window.bootstrap.Modal.getOrCreateInstance(modal);
 
                 modalInstance.show();
-
             } else {
-
                 alert(
                     "Bootstrap JavaScript n'est pas chargé correctement."
                 );
@@ -168,35 +178,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-   
-
-    document.addEventListener("submit", function (event) {
-
-        if (event.target.id === "signInForm") {
-
-            event.preventDefault();
-
-            const email = document.getElementById("email").value.trim();
-
-            const password =
-                document.getElementById("password").value;
-
-            if (email === "" || password === "") {
-                alert("Veuillez remplir tous les champs.");
-                return;
-            }
-
-            alert(
-                "Formulaire envoyé avec succès !\n" +
-                "Adresse e-mail : " + email +
-                "\n\nCeci est une démonstration. " +
-                "Aucune authentification réelle n'a été effectuée."
-            );
-        }
-    });
-
-
     
+    document.addEventListener("submit", function (event) {
+        if (event.target.id !== "signInForm") {
+            return;
+        }
 
+        event.preventDefault();
+
+        const email = document
+            .getElementById("signInEmail")
+            .value.trim();
+
+        const password = document
+            .getElementById("signInPassword")
+            .value;
+
+        if (email === "" || password.trim() === "") {
+            alert("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        alert(
+            "Formulaire envoyé avec succès !\n\n" +
+            "Adresse e-mail : " + email +
+            "\n\nCeci est une démonstration. " +
+            "Aucune authentification réelle n'a été effectuée."
+        );
+
+       
+        const modal = document.getElementById("signInModal");
+
+        if (modal && window.bootstrap && window.bootstrap.Modal) {
+            window.bootstrap.Modal.getOrCreateInstance(modal).hide();
+        }
+
+        event.target.reset();
+    });
 
 });
