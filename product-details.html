@@ -1,0 +1,122 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <title>ALGO Gaming - Best Gaming Site Ever!</title>
+<meta name="description" content="ALGO Gaming: discover trending games, most played titles and top game categories.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/monStyle.css">
+</head>
+
+<body>
+
+    
+    <header class="headerContainer">
+        <div class="header">
+            <a href="index.html" class="logo">
+               <img src="images/logo.png" alt="ALGO Gaming">
+            </a>
+
+            <nav class="headerLinks" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Our Shop</a>
+                <a href="product-details.html" aria-current="page">Product Details</a>
+                <a href="contactUs.html">Contact Us</a>
+                <button class="btn" type="button">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    
+    <section class="container text-center py-5">
+        <h1>Product Details</h1>
+
+        <nav aria-label="Breadcrumb">
+            <a href="index.html">Home</a> /
+            <a href="shop.html">Our Shop</a> /
+            <span>Product Details</span>
+        </nav>
+    </section>
+
+    
+    <main class="container py-5">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-12 col-lg-6">
+                <img
+                    id="gameImage"
+                    src="images/trending-01.jpg"
+                    alt="Assassin's Creed"
+                    class="img-fluid rounded shadow"
+                >
+            </div>
+
+            <div class="col-12 col-lg-6">
+
+                <p class="text-muted mb-2" id="gameCategory">Action</p>
+
+                <h2 id="gameTitle">Assassin's Creed</h2>
+
+                <h3 class="text-primary my-3" id="gamePrice">29.99$</h3>
+
+                <p id="gameDescription">
+                    Explore an exciting adventure in a world full of challenges.
+                    Discover the gameplay, complete missions and enjoy an
+                    unforgettable gaming experience.
+                </p>
+
+                <div class="mb-3">
+                    <strong>Category:</strong>
+                    <span id="gameCategoryInfo">Action</span>
+                </div>
+
+                <div class="mb-4">
+                    <strong>Platform:</strong>
+                    <span id="gamePlatform">PC and consoles, depending on edition</span>
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="buyButton" type="button">
+                    Buy Now
+                </button>
+
+                <a href="shop.html" class="btn btn-outline-secondary btn-lg ms-2">
+                    Back to Shop
+                </a>
+
+                <p id="buyMessage" class="mt-3" aria-live="polite"></p>
+
+            </div>
+        </div>
+
+      
+        <section class="mt-5 pt-4 border-top">
+            <h2>About This Game</h2>
+            <p id="gameLongDescription">
+                Choose a game to discover more information.
+            </p>
+        </section>
+
+    </main>
+
+    
+    <footer class="footerContainer">
+        <div class="footer">
+            <p>Copyright &copy; 2026 ALGO Gaming Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/monScript3.js"></script>
+
+
+</body>
+</html>

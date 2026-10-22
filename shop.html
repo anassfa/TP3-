@@ -1,0 +1,223 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <title>ALGO Gaming - Best Gaming Site Ever!</title>
+<meta name="description" content="ALGO Gaming: discover trending games, most played titles and top game categories.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/monStyle.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="headerContainer">
+        <div class="header">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="ALGO Gaming">
+            </a>
+
+            <nav class="headerLinks" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="shop.html" aria-current="page">Our Shop</a>
+                <a href="product-details.html">Product Details</a>
+                <a href="contactUs.html">Contact Us</a>
+                <button class="btn" type="button">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    
+    <section class="container text-center py-5">
+        <h1>Our Shop</h1>
+
+        <nav aria-label="Breadcrumb">
+            <a href="index.html">Home</a> /
+            <span>Our Shop</span>
+        </nav>
+    </section>
+
+   
+    <main class="container py-5">
+
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-6">
+                <h2>Explore Our Games</h2>
+            </div>
+
+            <div class="col-md-6">
+                <form class="searchBar" role="search">
+                    <div class="input-group">
+                        <input
+                            type="search"
+                            class="form-control"
+                            placeholder="Search a game..."
+                            aria-label="Search games"
+                        >
+                        <button class="btn btn-primary searchBtn" type="submit">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+       
+        <div class="d-flex flex-wrap gap-2 mb-4" id="categoryFilters">
+            <button class="btn btn-primary" type="button" data-category="all">
+                All Games
+            </button>
+            <button class="btn btn-outline-primary" type="button" data-category="action">
+                Action
+            </button>
+            <button class="btn btn-outline-primary" type="button" data-category="rpg">
+                RPG
+            </button>
+            <button class="btn btn-outline-primary" type="button" data-category="racing">
+                Racing
+            </button>
+            <button class="btn btn-outline-primary" type="button" data-category="survival">
+                Survival
+            </button>
+        </div>
+
+        <p id="shopMessage" class="mb-3" aria-live="polite"></p>
+
+      
+        <div class="row g-4" id="shopGames">
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="action">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/trending-01.jpg"
+                         class="card-img-top"
+                         alt="Assassin's Creed">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Action</p>
+                        <h3 class="h5">Assassin's Creed</h3>
+                        <a href="product-details.html?game=assassins-creed"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="rpg">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/trending-02.jpg"
+                         class="card-img-top"
+                         alt="Cyberpunk 2077">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">RPG</p>
+                        <h3 class="h5">Cyberpunk 2077</h3>
+                        <a href="product-details.html?game=cyberpunk-2077"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="survival">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/trending-03.jpg"
+                         class="card-img-top"
+                         alt="Fortnite">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Survival</p>
+                        <h3 class="h5">Fortnite</h3>
+                        <a href="product-details.html?game=fortnite"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="survival">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/top-game-06.jpg"
+                         class="card-img-top"
+                         alt="Minecraft">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Survival</p>
+                        <h3 class="h5">Minecraft</h3>
+                        <a href="product-details.html?game=minecraft"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="action">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/top-game-01.jpg"
+                         class="card-img-top"
+                         alt="PUBG">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Action</p>
+                        <h3 class="h5">PUBG</h3>
+                        <a href="product-details.html?game=pubg"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="action">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/top-game-02.jpg"
+                         class="card-img-top"
+                         alt="Apex Legends">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Action</p>
+                        <h3 class="h5">Apex Legends</h3>
+                        <a href="product-details.html?game=apex-legends"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="racing">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/categories-02.jpg"
+                         class="card-img-top"
+                         alt="Racing Games">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">Racing</p>
+                        <h3 class="h5">Racing Games</h3>
+                        <a href="product-details.html?game=racing"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 shop-game" data-category="rpg">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/top-game-05.jpg"
+                         class="card-img-top"
+                         alt="Dota 2">
+                    <div class="card-body">
+                        <p class="text-muted mb-1">RPG</p>
+                        <h3 class="h5">Dota 2</h3>
+                        <a href="product-details.html?game=dota-2"
+                           class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+   
+    <footer class="footerContainer">
+        <div class="footer">
+           <p>Copyright &copy; 2026 ALGO Gaming Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/monScript2.js"></script>
+
+
+</body>
+</html>
